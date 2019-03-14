@@ -42,109 +42,16 @@
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <!-- <dl>
-                                    <dt><img src="./img/1.png" alt=""></dt>
-                                    <dd>美食</dd>
-                                </dl>
-                                <dl>
-                                    <dt><img src="./img/1.png" alt=""></dt>
-                                    <dd>美食</dd>
-                                </dl>
-                                <dl>
-                                    <dt><img src="./img/1.png" alt=""></dt>
-                                    <dd>美食</dd>
-                                </dl>
-                                <dl>
-                                    <dt><img src="./img/1.png" alt=""></dt>
-                                    <dd>美食</dd>
-                                </dl>
-                                <dl>
-                                    <dt><img src="./img/1.png" alt=""></dt>
-                                    <dd>美食</dd>
-                                </dl>
-                                <dl>
-                                    <dt><img src="./img/1.png" alt=""></dt>
-                                    <dd>美食</dd>
-                                </dl>
-                                <dl>
-                                    <dt><img src="./img/1.png" alt=""></dt>
-                                    <dd>美食</dd>
-                                </dl>
-                                <dl>
-                                    <dt><img src="./img/1.png" alt=""></dt>
-                                    <dd>美食</dd>
-                                </dl>
-                                <dl>
-                                    <dt><img src="./img/1.png" alt=""></dt>
-                                    <dd>美食</dd>
-                                </dl>
-
-                                <dl>
-                                    <dt><img src="./img/1.png" alt=""></dt>
-                                    <dd>美食</dd>
-                                </dl> -->
                             </div>
                             <div class="swiper-slide">
-                                    <!-- <dl>
-                                        <dt><img src="./img/1.png" alt=""></dt>
-                                        <dd>美食</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt><img src="./img/1.png" alt=""></dt>
-                                        <dd>美食</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt><img src="./img/1.png" alt=""></dt>
-                                        <dd>美食</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt><img src="./img/1.png" alt=""></dt>
-                                        <dd>美食</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt><img src="./img/1.png" alt=""></dt>
-                                        <dd>美食</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt><img src="./img/1.png" alt=""></dt>
-                                        <dd>美食</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt><img src="./img/1.png" alt=""></dt>
-                                        <dd>美食</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt><img src="./img/1.png" alt=""></dt>
-                                        <dd>美食</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt><img src="./img/1.png" alt=""></dt>
-                                        <dd>美食</dd>
-                                    </dl>
-    
-                                    <dl>
-                                        <dt><img src="./img/1.png" alt=""></dt>
-                                        <dd>美食</dd>
-                                    </dl> -->
-                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="youlike">
                     <p class="guss">猜你喜欢</p>
                     <div class="likecenter">
-                        <dl>
-                            <dt><img src="./img/eat_03.png" alt=""></dt>
-                            <dd>
-                                <p>华莱士</p>
-                                <p>[15店通用]鸡腿堡+薯条+中杯可乐1份</p>
-                                <p>
-                                    <span>13元</span>
-                                    <span>门市价：31元</span>
-                                    <span>已售4321</span>
-                                </p>
-                            </dd>
-                        </dl>
+                      
                     </div>
                 </div>
             </div>
@@ -154,56 +61,7 @@
     </div>
 
 
-    <script>
-        var swiperSlide=document.querySelectorAll(".swiper-slide");
-
-        function ajax(opt) {
-            return new Promise((resolve, reject) => {
-                var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
-                xhr.open("get", "/data", true);
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4) {
-                        if (xhr.status === 200) {
-                            resolve(JSON.parse(xhr.responseText))
-                        } else {
-                            reject(xhr.status)
-                        }
-                    }
-                }
-                xhr.send();
-            })
-
-        }
-
-        ajax({
-            url: "/data"
-        }).then(data => {
-            var str="";
-            data.data.forEach((item)=>{
-                console.log(item)
-                str+=`
-                            <dl>
-                                    <dt><img src="${item.img}" alt=""></dt>
-                                    <dd>${item.title}</dd>
-                            </dl>
-                `
-            })
-
-            swiperSlide.forEach(file=>{
-                file.innerHTML=str;
-            })
-
-        }, error => {
-            console.log(error)
-        })
-
-        var scroll = new BScroll('.center', {
-
-        })
-        var swiper=new Swiper(".swiper-container",{
-
-        })
-    </script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>

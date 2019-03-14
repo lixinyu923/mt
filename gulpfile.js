@@ -26,3 +26,35 @@ gulp.task("devCss",()=>{
 gulp.task("watch",()=>{
     gulp.watch("./src/scss/**/*.scss",gulp.series("devCss"))
 })
+
+gulp.task("devJs",()=>{
+    return gulp.src("./src/js/**/*.js")
+    .pipe(babel({
+       presets:'es2015'
+    }))
+    .pipe(uglify())
+    .pipe(gulp.dest("./build/js"))
+})
+
+
+gulp.task("serverData",()=>{
+    return gulp.src("./src")
+    .pipe(webserver({
+        port:9090,
+        middleware:(req,res,next)=>{
+            if(req.url==="/favicon.ico"){
+                return res.end("")
+            }
+            let {query,pathname}=parse(req.url,true);
+            pathname=pathname==="/"?"index.html":pathname;
+            if(extname(pathname)){
+                res.end(readFileSync(join(__dirname,"src",pathname)))
+            }else{
+                res.end(JSON.stringify({data:data,list:list}));
+            }
+            res.end()
+        }
+    }))
+})
+
+gulp.task("go",gulp.parallel("watch","serverData"))

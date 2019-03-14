@@ -111,7 +111,7 @@ html,body{
 }
 .center-list{
     width:100%;
-    height:pxTorem(210px);
+    height:pxTorem(200px);
     background:#fff;
     color:#414141;
 
@@ -129,10 +129,20 @@ html,body{
                 width:20%;
                 height:50%;
                 text-align:center;
+                padding:pxTorem(10px);
+                box-sizing:border-box;
+
                 dt{
                     width:100%;
-                    background:blue;
                     height:pxTorem(50px);
+                    margin-bottom:pxTorem(5px);
+                    img{
+                        width:pxTorem(50px);
+                        height:pxTorem(50px);
+                    }
+                }
+                dd{
+                    font-size:pxTorem(13px);
                 }
             }
         }
