@@ -25,7 +25,6 @@ ajax({
 }).then(data => {
     var str = "";
     data.data.forEach((item) => {
-        console.log(item)
         str +=
             `
                     <dl>

@@ -58,3 +58,30 @@ gulp.task("serverData",()=>{
 })
 
 gulp.task("go",gulp.parallel("watch","serverData"))
+
+gulp.task("Css",()=>{
+    return gulp.src("./src/scss/**/*.scss")
+    .pipe(sass())
+    .pipe(autoprefixer({
+        browsers:['last 2 versions']
+    }))
+    .pipe(mincss())
+    .pipe(gulp.dest("./build/css"))
+})
+
+gulp.task("devHtml",()=>{
+    return gulp.src("./src/*.html")
+    .pipe(htmlmin({
+        collapseWhitespace:true
+    }))
+    .pipe(gulp.dest("./build"))
+})
+
+gulp.task("Js",()=>{
+    return gulp.src("./src/js/*.js")
+    .pipe(babel({
+       presets:'es2015'
+    }))
+    .pipe(uglify())
+    .pipe(gulp.dest("./build/js"))
+})
